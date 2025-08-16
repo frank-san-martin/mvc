@@ -16,7 +16,7 @@ class Router
         $controllerNome = 'App\controllers\\' . ucfirst($controllerNome) . 'Controller';
         $actionName = $parts[1] ?? 'index';
 
-        //dd($controllerNome);
+        dd($controllerNome, $actionName, $url, $parts);
         // tratando controller
         if (!class_exists($controllerNome)) {
             $controller = new HttpErrorController();
