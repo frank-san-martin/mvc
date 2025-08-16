@@ -27,8 +27,9 @@ class Router
 
         //tratando a action
         if (!method_exists($controller, $actionName)) {
+            $controllerError = $controller;
             $controller = new HttpErrorController();
-            $controller->notFound();
+            $controller->notFoundMethod($controllerError, $actionName);
             return;
         }
 
