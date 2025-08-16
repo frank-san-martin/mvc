@@ -2,7 +2,6 @@
 
 namespace App\core;
 
-use App\controllers\HomeController;
 use App\controllers\errors\HttpErrorController;
 
 class Router
@@ -17,6 +16,7 @@ class Router
         $controllerNome = 'App\controllers\\' . ucfirst($controllerNome) . 'Controller';
         $actionName = $parts[1] ?? 'index';
 
+        //dd($controllerNome);
         // tratando controller
         if (!class_exists($controllerNome)) {
             $controller = new HttpErrorController();
