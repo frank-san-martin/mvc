@@ -7,5 +7,10 @@
             "email": "f_san_mart@hotmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        }
+    },
     "require": {}
 }
