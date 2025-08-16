@@ -1,8 +1,9 @@
 <?php
-require_once('../app/controllers/HomeController.php');
-require_once('../app/controllers/errors/HttpErrorController.php');
 
+namespace App\core;
 
+use App\controllers\HomeController;
+use App\controllers\errors\HttpErrorController;
 
 class Router
 {
@@ -13,9 +14,8 @@ class Router
 
         // capturando controller e action
         $controllerNome = $parts[0] ?? 'Home';
+        $controllerNome = 'App\controllers\\' . ucfirst($controllerNome) . 'Controller';
         $actionName = $parts[1] ?? 'index';
-
-        $controllerNome = ucfirst($controllerNome) . 'Controller';
 
         // tratando controller
         if (!class_exists($controllerNome)) {
